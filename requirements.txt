@@ -1,0 +1,8 @@
+flask
+requests
+beautifulsoup4
+pandas
+xlrd
+openpyxl
+pdfplumber
+gunicorn

@@ -1,0 +1,48 @@
+{
+  "_nota": "Ogni USR/Ambito pubblica in modo indipendente: l'URL della pagina GPS cambia ad ogni nuova pubblicazione e va aggiornato a mano qui quando serve. 'formato' indica xls o pdf, dedotto controllando i file reali della pagina.",
+  "Palermo": {
+    "dominio": "https://pa.usr.sicilia.it",
+    "pagina_gps": "https://pa.usr.sicilia.it/graduatorie-provinciali-per-le-supplenze-gps-del-personale-docente-di-ogni-ordine-e-grado-e-del-personale-educativo-valevoli-per-il-biennio-2026-2028-della-provincia-di-palermo/",
+    "formato": "xls"
+  },
+  "Trapani": {
+    "dominio": "https://tp.usr.sicilia.it",
+    "pagina_gps": "https://tp.usr.sicilia.it/pubblicazione-graduatorie-provinciali-per-le-supplenze-gps-bienni-2026-2028/",
+    "formato": "pdf"
+  },
+  "Catania": {
+    "dominio": "https://ct.usr.sicilia.it",
+    "pagina_gps": "https://ct.usr.sicilia.it/graduatorie-provinciali-per-le-supplenze-gps-del-personale-docente-di-ogni-ordine-e-grado-e-del-personale-educativo-valevoli-a-s-2026-2027/",
+    "formato": "zip"
+  },
+  "Messina": {
+    "dominio": "https://me.usr.sicilia.it",
+    "pagina_gps": "https://me.usr.sicilia.it/gps-personale-docente-decreto-di-pubblicazione-delle-graduatorie-provinciali-per-le-supplenze-gps-della-provincia-di-messina-posto-comune-e-sostegno-del-personale-docente-ed/",
+    "formato": "xls",
+    "_nota": "PPPP qui usa fascia 1/2 (non TAB9/TAB10 come Palermo) — la classificazione funziona ma l'etichetta PPPP non è uniforme tra province"
+  },
+  "Agrigento": {
+    "dominio": "https://ag.usr.sicilia.it",
+    "pagina_gps": "https://ag.usr.sicilia.it/pubblicazione-delle-graduatorie-provinciali-di-supplenza-g-p-s-di-ogni-ordine-e-grado-della-provincia-di-agrigento-ai-sensi-dell-o-m-27-2026-valevoli-per-gli-anni-scolastici-2026-2027-e-2027/",
+    "formato": "pdf",
+    "_nota": "Usa nomi descrittivi in italiano invece dei codici AA/EE/MM/SS (gestito dal classificatore di riserva)"
+  },
+  "Caltanissetta-Enna": {
+    "dominio": "https://cl-en.usr.sicilia.it",
+    "pagina_gps": null,
+    "formato": null,
+    "_da_completare": "cerca su cl-en.usr.sicilia.it la pagina di pubblicazione GPS 2026/2028 e incolla qui il link"
+  },
+  "Ragusa": {
+    "dominio": "https://rg.usr.sicilia.it",
+    "pagina_gps": null,
+    "formato": null,
+    "_da_completare": "cerca su rg.usr.sicilia.it la pagina di pubblicazione GPS 2026/2028 e incolla qui il link"
+  },
+  "Siracusa": {
+    "dominio": "https://sr.usr.sicilia.it",
+    "pagina_gps": null,
+    "formato": null,
+    "_da_completare": "cerca su sr.usr.sicilia.it la pagina di pubblicazione GPS 2026/2028 e incolla qui il link"
+  }
+}
