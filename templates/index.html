@@ -1,0 +1,16 @@
+Dove ho più possibilità di supplenza?
+Inserisci la tua classe di concorso e il tuo punteggio.
+
+Classe di concorso 
+{{ classe_concorso }}
+ Il tuo punteggio 
+{{ punteggio }}
+ Calcola
+{% if errore %}
+{{ errore }}
+
+{% endif %} {% if risultati %} {% for r in risultati %} {% endfor %}
+Provincia	Punteggio ultimo chiamato	Margine	Possibilità
+{{ r.provincia }}	{{ r.punteggio_ultimo_chiamato }}	{{ r.margine }}	{{ r.possibilita }}
+{% endif %}
+⚠️ Dati di esempio — in attesa di collegare i dati reali raccolti dallo scraper.
