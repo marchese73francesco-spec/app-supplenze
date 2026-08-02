@@ -1,0 +1,21 @@
+{
+  "_nota": "DATI DI ESEMPIO — da sostituire con quelli reali raccolti dallo scraper. Struttura: provincia -> classe_concorso -> punteggio_ultimo_chiamato",
+  "Palermo": {
+    "AA-1": 45.5,
+    "EE-1": 62.0,
+    "MM-1": 38.2,
+    "SS-1": 51.7
+  },
+  "Catania": {
+    "AA-1": 40.0,
+    "EE-1": 58.5,
+    "MM-1": 35.0,
+    "SS-1": 47.3
+  },
+  "Trapani": {
+    "AA-1": 33.0,
+    "EE-1": 49.0,
+    "MM-1": 30.5,
+    "SS-1": 42.0
+  }
+}
