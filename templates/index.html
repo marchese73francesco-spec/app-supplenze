@@ -1,1 +1,57 @@
 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Supplenze - Trova la tua provincia</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Dove ho più possibilità di supplenza?</h1>
+    <p class="sottotitolo">Inserisci la tua classe di concorso e il tuo punteggio.</p>
+
+    <form method="POST">
+      <label for="classe_concorso">Classe di concorso</label>
+      <input type="text" id="classe_concorso" name="classe_concorso"
+             placeholder="es. AA-1" value="{{ classe_concorso }}" required>
+
+      <label for="punteggio">Il tuo punteggio</label>
+      <input type="text" id="punteggio" name="punteggio"
+             placeholder="es. 45.5" value="{{ punteggio }}" required>
+
+      <button type="submit">Calcola</button>
+    </form>
+
+    {% if errore %}
+      <p class="errore">{{ errore }}</p>
+    {% endif %}
+
+    {% if risultati %}
+      <table>
+        <thead>
+          <tr>
+            <th>Provincia</th>
+            <th>Punteggio ultimo chiamato</th>
+            <th>Margine</th>
+            <th>Possibilità</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in risultati %}
+          <tr class="{{ r.possibilita }}">
+            <td>{{ r.provincia }}</td>
+            <td>{{ r.punteggio_ultimo_chiamato }}</td>
+            <td>{{ r.margine }}</td>
+            <td>{{ r.possibilita }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    <p class="nota">⚠️ Dati di esempio — in attesa di collegare i dati reali raccolti dallo scraper.</p>
+  </main>
+</body>
+</html>
