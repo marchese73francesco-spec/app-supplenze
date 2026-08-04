@@ -12,5 +12,7 @@ Classe di concorso
 {% endif %} {% if risultati %} {% for r in risultati %} {% endfor %}
 Provincia	Punteggio ultimo chiamato	Margine	Possibilità
 {{ r.provincia }}	{{ r.punteggio_ultimo_chiamato }}	{{ r.margine }}	{{ r.possibilita }}
+{% endif %} {% if nota_dati %}
+⚠️ {{ nota_dati }}
+
 {% endif %}
-⚠️ Dati di esempio — in attesa di collegare i dati reali raccolti dallo scraper.
