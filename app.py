@@ -19,12 +19,12 @@ DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "ultimo_chiamato.jso
 def carica_dati():
     with open(DATA_PATH, encoding="utf-8") as f:
         dati = json.load(f)
-    dati.pop("_nota", None)
-    return dati
+    nota = dati.pop("_nota", None)
+    return dati, nota
 
 
 def calcola_possibilita(classe_concorso: str, punteggio: float):
-    dati = carica_dati()
+    dati, _ = carica_dati()
     risultati = []
 
     for provincia, classi in dati.items():
@@ -72,6 +72,7 @@ def index():
         classe_concorso=classe_concorso,
         punteggio=punteggio,
         errore=errore,
+        nota_dati=carica_dati()[1],
     )
 
 
