@@ -57,6 +57,7 @@ def index():
     if request.method == "POST":
         classe_concorso = request.form.get("classe_concorso", "").strip().upper()
         punteggio_raw = request.form.get("punteggio", "").strip().replace(",", ".")
+        punteggio = punteggio_raw
 
         try:
             punteggio_val = float(punteggio_raw)
@@ -79,3 +80,4 @@ def index():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
+
