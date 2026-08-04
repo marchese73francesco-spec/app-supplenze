@@ -1,48 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root {
+  --bg: #F7EEDD;
+  --ink: #24344A;
+  --ink-soft: #5B6B80;
+  --teal: #1F6F8B;
+  --teal-dark: #15505F;
+  --ochre: #D99A3D;
+  --terracotta: #B0402E;
+  --line: #DCCBA0;
+  --card: #FFFDF8;
+  --radius: 14px;
+}
+
 * { box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: #f4f6f8;
+  font-family: 'Work Sans', -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 8%, rgba(31,111,139,0.07) 0, transparent 45%),
+    radial-gradient(circle at 92% 18%, rgba(217,154,61,0.10) 0, transparent 40%);
   margin: 0;
-  padding: 24px;
-  color: #1a1a1a;
+  padding: 32px 20px;
+  color: var(--ink);
+  line-height: 1.5;
 }
 
 main {
   max-width: 640px;
   margin: 0 auto;
-  background: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
-h1 { font-size: 1.4rem; margin-bottom: 4px; }
-.sottotitolo { color: #666; margin-top: 0; }
+/* ---------- Hero ---------- */
 
-form { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-label { font-weight: 600; font-size: 0.9rem; }
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  background: rgba(31,111,139,0.09);
+  border: 1px solid rgba(31,111,139,0.22);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.sottotitolo {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin: 0 auto;
+  max-width: 46ch;
+}
+
+/* Fila di tessere che rappresentano le province coperte */
+.tessere-province {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.tessera {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--teal);
+  position: relative;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.35);
+}
+
+.tessera::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  border-radius: 3px;
+}
+
+.tessera:nth-child(2n) { background: var(--ochre); }
+.tessera:nth-child(3n) { background: var(--terracotta); }
+
+/* ---------- Form ---------- */
+
+.scheda {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(36,52,74,0.06), 0 10px 24px -14px rgba(36,52,74,0.18);
+}
+
+form { display: flex; flex-direction: column; gap: 16px; }
+
+label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin-bottom: -8px;
+}
+
 input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
   font-size: 1rem;
+  font-family: 'Work Sans', sans-serif;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+
+input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(31,111,139,0.16);
+}
+
+input::placeholder { color: #B7A98A; }
+
 button {
-  background: #2563eb;
-  color: white;
+  background: var(--teal);
+  color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 13px;
+  border-radius: 9px;
   font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Work Sans', sans-serif;
   cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  margin-top: 4px;
 }
-button:hover { background: #1d4ed8; }
 
-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-th, td { padding: 8px; text-align: left; border-bottom: 1px solid #eee; }
-tr.alta { background: #ecfdf5; }
-tr.bassa { background: #fef2f2; }
+button:hover { background: var(--teal-dark); }
+button:active { transform: scale(0.99); }
+button:focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
 
-.errore { color: #b91c1c; font-weight: 600; }
-.nota { font-size: 0.8rem; color: #999; margin-top: 20px; }
+/* ---------- Errore ---------- */
+
+.errore {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: rgba(176,64,46,0.08);
+  border: 1px solid rgba(176,64,46,0.3);
+  border-radius: 9px;
+  color: var(--terracotta);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ---------- Risultati ---------- */
+
+.risultati-titolo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  color: var(--ink);
+}
+
+.elenco-risultati {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tile {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tile.bassa { border-left-color: var(--terracotta); }
+
+.tile-provincia {
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.tile-dettaglio {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.tile-margine {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.tile.alta .tile-margine { color: var(--teal-dark); }
+.tile.bassa .tile-margine { color: var(--terracotta); }
+
+.tile-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+.tile.alta .tile-badge { background: rgba(31,111,139,0.12); color: var(--teal-dark); }
+.tile.bassa .tile-badge { background: rgba(176,64,46,0.1); color: var(--terracotta); }
+
+/* ---------- Nota ---------- */
+
+.nota {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem; }
+  .tile { flex-direction: column; align-items: flex-start; }
+  .tile-dettaglio { text-align: left; }
+}
+
+
