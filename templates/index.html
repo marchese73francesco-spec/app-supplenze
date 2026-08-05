@@ -1,28 +1,64 @@
-GPS · Supplenze Sicilia
-Dove hai più possibilità
-di ricevere una supplenza?
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-Inserisci la tua classe di concorso e il tuo punteggio: li confrontiamo con l'ultimo punteggio chiamato in ogni provincia.
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dove ho più possibilità di supplenza?</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <span class="eyebrow">GPS · Supplenze Sicilia</span>
+      <h1>Dove hai più possibilità<br>di ricevere una supplenza?</h1>
+      <p class="sottotitolo">Inserisci la tua classe di concorso e il tuo punteggio: li confrontiamo con l'ultimo punteggio chiamato in ogni provincia.</p>
+      <div class="tessere-province" aria-hidden="true">
+        <span class="tessera"></span><span class="tessera"></span><span class="tessera"></span>
+        <span class="tessera"></span><span class="tessera"></span><span class="tessera"></span>
+      </div>
+    </div>
 
-Classe di concorso 
-{{ classe_concorso }}
- Il tuo punteggio 
-{{ punteggio }}
- Calcola le mie possibilità
-{% if errore %}
-{{ errore }}
+    <div class="scheda">
+      <form method="POST">
+        <label for="classe_concorso">Classe di concorso</label>
+        <input type="text" id="classe_concorso" name="classe_concorso"
+               placeholder="es. A027" value="{{ classe_concorso }}" required>
 
-{% endif %}
-{% if risultati %}
-Le tue possibilità per provincia
+        <label for="punteggio">Il tuo punteggio</label>
+        <input type="text" id="punteggio" name="punteggio"
+               placeholder="es. 45.5" value="{{ punteggio }}" required>
 
-{% for r in risultati %}
-{{ r.provincia }}
-{{ "%+.1f"|format(r.margine) }} punti {{ r.possibilita }}
-ultimo chiamato
-{{ r.punteggio_ultimo_chiamato }}
-{% endfor %}
-{% endif %} {% if nota_dati %}
-⚠️ {{ nota_dati }}
+        <button type="submit">Calcola le mie possibilità</button>
+      </form>
 
-{% endif %}
+      {% if errore %}
+        <p class="errore">{{ errore }}</p>
+      {% endif %}
+    </div>
+
+    {% if risultati %}
+      <p class="risultati-titolo">Le tue possibilità per provincia</p>
+      <div class="elenco-risultati">
+        {% for r in risultati %}
+        <div class="tile {{ r.possibilita }}">
+          <div>
+            <div class="tile-provincia">{{ r.provincia }}</div>
+            <div class="tile-margine">
+              {{ "%+.1f"|format(r.margine) }} punti
+              <span class="tile-badge">{{ r.possibilita }}</span>
+            </div>
+          </div>
+          <div class="tile-dettaglio">
+            ultimo chiamato<br>{{ r.punteggio_ultimo_chiamato }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if nota_dati %}
+      <p class="nota">⚠️ {{ nota_dati }}</p>
+    {% endif %}
+  </main>
+</body>
+</html>
